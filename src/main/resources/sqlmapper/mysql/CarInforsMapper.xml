@@ -93,4 +93,16 @@
         delete from CAR_INFORS
         where CAR_INFOR_ID = #{CAR_INFOR_ID}
     </delete>
+
+    <select id="findAll" resultType="Map">
+        select CP_NAME as 'company_name', CAR_NAME as 'car_name', DATE_YEAR as 'year', COUNT(`OPTION`) as 'option_count'
+        from CAR_INFO CI
+                 INNER JOIN CAR_INFO_OPTIONS COP ON CI.CI_PK = COP.CI_FK
+                 INNER JOIN COMPANY CP ON CP.CP_PK = CI.CP_FK
+                 INNER JOIN CAR_NAME CN ON CN.CN_PK = CI.CN_FK
+                 INNER JOIN MODEL_YEAR MY ON MY.YEAR_PK = CI.YEAR_FK
+                 INNER JOIN OPTIONS OP ON OP.OP_PK = COP.OP_FK
+        GROUP BY CP.CP_PK, CN.CN_PK, MY.YEAR_PK, CI.CI_PK;
+
+    </select>
 </mapper>

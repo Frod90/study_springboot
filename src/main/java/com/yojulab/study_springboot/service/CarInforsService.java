@@ -177,4 +177,13 @@ public class CarInforsService {
         return result;
     }
 
+    public Map findAll() {
+        // Object getOne(String sqlMapId, Object dataMap)
+        String sqlMapId = "CarInfors.findAll";
+
+        HashMap result = new HashMap<>();
+        result.put("resultList", sharedDao.findAll(sqlMapId));
+        return result;
+    }
+
 }
