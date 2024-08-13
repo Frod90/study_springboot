@@ -52,7 +52,6 @@
                     <th>자동차이름</th>
                     <th>연식</th>
                     <th>옵션 갯수</th>
-                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody id="carTableBody">
@@ -71,9 +70,6 @@
                     <td><%= record.get("year") %>
                     </td>
                     <td><%= record.get("option_count") %>
-                    </td>
-                    <td>
-                        <button formaction="/carInfor/deleteAndSelectSearch" formmethod="post">Del</button>
                     </td>
                 </tr>
 

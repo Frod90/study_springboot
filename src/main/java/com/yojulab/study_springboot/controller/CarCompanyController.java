@@ -5,24 +5,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.yojulab.study_springboot.service.CarInforsService;
+import com.yojulab.study_springboot.service.CarCompanyService;
 
 @Controller
-public class TestCarController {
+public class CarCompanyController {
 
-	CarInforsService carInforsService;
+	CarCompanyService carCompanyService;
 
-	public TestCarController(@Autowired CarInforsService carInforsService) {
-		this.carInforsService = carInforsService;
+	public CarCompanyController(@Autowired CarCompanyService carCompanyService) {
+		this.carCompanyService = carCompanyService;
 	}
 
-	@GetMapping("/findAll")
+	@GetMapping("/carcompany/list")
 	public ModelAndView findAll(ModelAndView modelAndView) {
 
-		Object result = carInforsService.findAll();
+		Object result = carCompanyService.findAll();
 
 		modelAndView.addObject("result", result);
-		modelAndView.setViewName("/WEB-INF/views/testCar/findAll.jsp");
+		modelAndView.setViewName("/WEB-INF/views/carcompany/list.jsp");
 
 		return modelAndView;
 
